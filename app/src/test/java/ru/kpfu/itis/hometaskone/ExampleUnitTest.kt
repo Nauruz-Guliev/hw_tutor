@@ -1,4 +1,4 @@
-package ru.kpfu.itis.hw_tutoring
+package ru.kpfu.itis.hometaskone
 
 import org.junit.Test
 
