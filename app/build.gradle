@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'ru.kpfu.itis.hometaskone'
+    namespace 'ru.kpfu.itis.hometasktwo'
     compileSdk 32
 
     defaultConfig {
-        applicationId "ru.kpfu.itis.hometaskone"
+        applicationId "ru.kpfu.itis.hometasktwo"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -30,9 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 

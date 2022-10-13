@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.FirstFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="counter"
+            type="int" />
+        <variable
+            name="name"
+            type="String" />
+    </data>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_navigate_to_third_fragment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/button_style"
-        android:text="Navigate to third fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:text="@string/generate_random_number"
-        android:id="@+id/btn_generate_random_number"
-        android:layout_width="0dp"
-        style="@style/button_style"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.Group
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        tools:context=".fragments.FirstFragment">
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_counter"
+            android:layout_width="wrap_content"
+            android:text="@{@string/counterValue(counter)}"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_navigate_to_second_fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Counter" />
+
+        <Button
+            android:id="@+id/btn_navigate_to_second_fragment"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/navigate_to_second_fragment"
+            app:layout_constraintBottom_toTopOf="@+id/btn_increment_counter_value" />
+
+        <Button
+            android:id="@+id/btn_increment_counter_value"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/increment_counter"
+            app:layout_constraintBottom_toTopOf="@+id/btn_open_dialog_fragment" />
+
+        <Button
+            android:id="@+id/btn_open_dialog_fragment"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_dialog_fragment"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

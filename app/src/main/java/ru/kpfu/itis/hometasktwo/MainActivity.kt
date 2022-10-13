@@ -1,15 +1,12 @@
-package ru.kpfu.itis.hometaskone
+package ru.kpfu.itis.hometasktwo
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.kpfu.itis.hometaskone.databinding.ActivityMainBinding
-import ru.kpfu.itis.hometaskone.fragments.SecondFragment
-import ru.kpfu.itis.hometaskone.fragments.ThirdFragment
+import android.os.Bundle
+import ru.kpfu.itis.hometasktwo.databinding.ActivityMainBinding
+import ru.kpfu.itis.hometasktwo.fragments.FirstFragment
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
-
     private val containerID: Int = R.id.main_fragments_container
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,16 +15,16 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        if (savedInstanceState != null) {
+        if(savedInstanceState !=null) {
             return
         }
 
         supportFragmentManager.beginTransaction().add(
             containerID,
-            ThirdFragment.getInstance(Bundle()),
-            ThirdFragment.THIRD_FRAGMENT_TAG
-        )
+            FirstFragment.getInstance(Bundle()),
+            FirstFragment.FIRST_FRAGMENT_TAG
+        ).setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out)
+            .addToBackStack(null)
             .commit()
     }
 }
-

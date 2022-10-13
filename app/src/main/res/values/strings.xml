@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">HomeTaskOne</string>
+    <string name="app_name">hometasktwo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="generate_random_number">Generate random number</string>
+    <string name="increment_counter">Increment counter</string>
+    <string name="navigate_to_second_fragment">Navigate to second fragment</string>
+    <string name="open_dialog_fragment">Open dialog fragment</string>
     <string name="second_fragment">Second Fragment</string>
-    <string name="third_fragment">Third Fragment</string>
-    <string name="first_fragment">First Fragment</string>
+    <string name="counter">Counter</string>
+    <string name="counterValue">Counter value %1$s</string>
 </resources>
