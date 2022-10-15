@@ -4,7 +4,6 @@ package ru.kpfu.itis.hwrecyclerview
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
@@ -12,8 +11,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.delay
 import ru.kpfu.itis.hwrecyclerview.databinding.PlanetItemBinding
 import ru.kpfu.itis.hwrecyclerview.repository.Planet
 
@@ -23,6 +20,8 @@ class PlanetAdapter(
     private val glide: RequestManager,
     private val onItemClick: (Int) -> Unit,
 ) : RecyclerView.Adapter<PlanetAdapter.PlanetViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetViewHolder =
         PlanetViewHolder(
             PlanetItemBinding.inflate(
@@ -40,19 +39,45 @@ class PlanetAdapter(
         holder.bind(listOfPlanets[position])
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     inner class PlanetViewHolder(
-        val binding: PlanetItemBinding,
+        private val binding: PlanetItemBinding,
         val onItemClick: (Int) -> Unit,
         private val glide: RequestManager,
-        ) : RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.layoutItem) {
+
+        init {
+            with(binding) {
+                root.setOnClickListener {
+
+                    onItemClick(adapterPosition)
+                 //   notifyItemChanged(adapterPosition)
+                }
+            }
+        }
 
         fun bind(planet: Planet) {
+
             with(binding) {
                 tvPlanetName.text = planet.name
-                root.setOnClickListener {
-                    onItemClick(planet.id)
-                    notifyItemChanged(planet.id)
-                }
+                this.planet = planet
+
                 if (planet.colorID != 0) {
                     layoutItem.setBackgroundColor(
                         ContextCompat.getColor(
@@ -61,6 +86,7 @@ class PlanetAdapter(
                         )
                     )
                 }
+
 
                 glide
                     .load(planet.imageUrl)
@@ -71,6 +97,7 @@ class PlanetAdapter(
                             target: Target<Drawable>?,
                             isFirstResource: Boolean
                         ): Boolean {
+
                             return false
                         }
 
@@ -81,11 +108,12 @@ class PlanetAdapter(
                             dataSource: DataSource?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            pbPlanetImage.visibility = ViewGroup.INVISIBLE
+                            progressCircular.visibility = ViewGroup.INVISIBLE
                             return false
                         }
 
                     } )
+
                     .into(ivPlanet)
             }
         }

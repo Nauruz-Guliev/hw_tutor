@@ -23,6 +23,7 @@ import ru.kpfu.itis.hwrecyclerview.repository.Planets
 class DescriptionFragment : Fragment() {
     private var _binding: FragmentDescriptionBinding? = null
     private val binding by lazy { _binding!!}
+
     private var planetID: Int  = -100
 
 
@@ -31,6 +32,7 @@ class DescriptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         planetID = arguments?.getInt(PLANET_ID_TAG)?:-100
+
         _binding = FragmentDescriptionBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -42,34 +44,12 @@ class DescriptionFragment : Fragment() {
 
     private fun initLayout() {
         val planet = Planets.listOfPlanets[planetID]
+
         with(binding) {
             tvDescription.setText(planet.description)
 
-            collapsingToolbar.title = planet.name
             Glide.with(root)
                 .load(planet.imageUrl)
-                .listener(object: RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        return false
-                    }
-
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        //pbPlanetImage.visibility = ViewGroup.INVISIBLE
-                        return false
-                    }
-
-                } )
                 .error(androidx.vectordrawable.R.drawable.notify_panel_notification_icon_bg)
                 .into(ivPlanet)
         }
@@ -78,10 +58,10 @@ class DescriptionFragment : Fragment() {
     companion object {
         const val DESCRIPTION_FRAGMENT_TAG = "DESCRIPTION_FRAGMENT_TAG"
         const val PLANET_ID_TAG = "PLANET_ID_TAG"
-        fun newInstance(planetID : Int) =
+        fun newInstance(itemPosition : Int) =
             DescriptionFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(PLANET_ID_TAG, planetID)
+                    putInt(PLANET_ID_TAG, itemPosition)
                 }
             }
     }
