@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">hw_rv</string>
+    <string name="icon">icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="url_array">
+        <item>"https://m.media-amazon.com/images/I/81Msvw3Ag2L._SL1500_.jpg"</item>
+        <item>"https://www.innocence-paris.com/files/revue-album-photo-grand-format-noel-01_7f227be09e13b375ae99d211bec41616.jpeg"</item>
+    </array>
+</resources>
