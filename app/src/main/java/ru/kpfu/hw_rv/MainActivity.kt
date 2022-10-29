@@ -34,8 +34,7 @@ class MainActivity : AppCompatActivity() {
         )
         Repository.generateList(20)
         adapter?.submitList(Repository.dataList)
-        binding.recyclerView.adapter = adapter
-        SwipeToDelete(binding.root, adapter).attachToRecyclerView(binding.recyclerView)
+     //todo
     }
 
     private fun onItemClicked() {
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onDeleteClicked(position: Int) {
-        Repository.deleteItem(this.baseContext, position)
+        Repository.deleteItem(position)
         adapter?.submitList(Repository.dataList)
     }
 

@@ -56,23 +56,10 @@ object Repository {
     }
 
     fun addItem(position: Int, item: MyModel.Item) {
-        val list = dataList.toMutableList()
-        if (position >= dataList.size - 1) {
-            list.add(item)
-        } else {
-            list.add(position, item)
-            for (i in position..dataList.size) {
-                if (list[i] is MyModel.Advertisement && i % 6 != 0) {
-                    list[i] = list[i - 1].also {
-                        list[i - 1] = list[i]
-                    }
-                }
-            }
-        }
-        dataList = list.toList()
+     //todo
     }
 
-    fun deleteItem(context: Context, position: Int) {
+    fun deleteItem(position: Int) {
         val list = dataList.toMutableList()
         list.removeAt(position)
         for (i in position until dataList.size - 2) {

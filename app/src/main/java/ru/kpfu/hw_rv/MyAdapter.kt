@@ -27,9 +27,7 @@ class MyAdapter(
         }
     }
 
-    override fun getItemViewType(position: Int): Int =
-        when (currentList[position]) {
-            is MyModel.Item -> R.layout.item_layout
-            is MyModel.Advertisement -> R.layout.advertisement_layout
-        }
+    override fun getItemViewType(position: Int): Int = 0
+//todo
+
 }

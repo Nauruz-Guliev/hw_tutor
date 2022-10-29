@@ -5,7 +5,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 
-class SwipeToDelete(view: View, adapter: MyAdapter?) :
+class SwipeToDelete(adapter: MyAdapter?) :
+
     ItemTouchHelper(object : SimpleCallback(0, ItemTouchHelper.RIGHT) {
         override fun onMove(
             recyclerView: RecyclerView,
@@ -15,8 +16,7 @@ class SwipeToDelete(view: View, adapter: MyAdapter?) :
 
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-            Repository.deleteItem(view.context, viewHolder.adapterPosition)
-            adapter?.submitList(Repository.dataList)
+          //todo
         }
     })
 

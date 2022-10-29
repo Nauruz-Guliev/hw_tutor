@@ -43,12 +43,7 @@ class CustomDialogFragment(
     private fun initValues() {
         with(binding) {
             btnSubmit.setOnClickListener {
-                val description = etDescription.text.toString()
-                val title = etTitle.text.toString()
-                val position = if (etTitle.text.toString()
-                        .isNotBlank()
-                ) Integer.valueOf(etPosition.text.toString()) else Repository.dataList.size
-                onAddButtonClicked(position, MyModel.Item(description, title))
+                //todo
                 dialog?.hide()
             }
         }

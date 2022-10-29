@@ -9,17 +9,12 @@ import ru.kpfu.hw_rv.databinding.ItemLayoutBinding
 class ItemViewHolder(
     val binding: ItemLayoutBinding,
     val onItemClicked: (() -> Unit)?,
-    val onDeleteClicked: ((Int) -> Unit)?
+    val onDeleteClicked: ((Int) -> Unit)?,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     init {
         with(binding) {
-            root.setOnClickListener {
-                onItemClicked?.invoke()
-            }
-            ibDelete.setOnClickListener {
-                onDeleteClicked?.invoke(adapterPosition)
-            }
+          //todo
         }
     }
 

@@ -8,4 +8,5 @@ class ListAdapterDiffUtil : DiffUtil.ItemCallback<MyModel>() {
 
     override fun areContentsTheSame(oldItem: MyModel, newItem: MyModel): Boolean =
         oldItem == newItem
+
 }
