@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 fun Fragment.navigate(id: Int, classCalled: NavigationFragmentInterface) =
-
     findNavController().navigate(
         id,
         classCalled.createBundle(

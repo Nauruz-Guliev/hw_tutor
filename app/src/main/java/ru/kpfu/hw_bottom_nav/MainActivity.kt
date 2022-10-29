@@ -22,16 +22,17 @@ class MainActivity : AppCompatActivity() {
                 .navController
 
         with(binding) {
-            binding.bnvMain.run {
+            bnvMain.run {
                 bnvMain.setupWithNavController(controller)
             }
         }
-
         val appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf(R.id.firstFragment),
             fallbackOnNavigateUpListener = ::onSupportNavigateUp
         )
-        findViewById<Toolbar>(androidx.appcompat.R.id.action_bar)
-            .setupWithNavController(controller, appBarConfiguration)
+        /*
+
+         */
+       //todo
     }
 }

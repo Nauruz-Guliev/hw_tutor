@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/favortiesFragment"
-        android:name="ru.kpfu.hw_bottom_nav.fragments.FavortiesFragment"
+        android:name="ru.kpfu.hw_bottom_nav.fragments.FavoritesFragment"
         android:label="fragment_favorties"
         tools:layout="@layout/fragment_favorties" />
 

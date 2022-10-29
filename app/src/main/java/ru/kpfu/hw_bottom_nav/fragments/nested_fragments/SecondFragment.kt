@@ -38,12 +38,7 @@ class SecondFragment : Fragment() {
     }
 
     private fun initLayouts() {
-        with(binding.includer) {
-            tvFragmentName.text = className
-            btnNavigate.setOnClickListener {
-                navigate(R.id.action_secondFragment2_to_thirdFragment, ThirdFragment)
-            }
-        }
+       //todo
     }
 
     companion object : NavigationFragmentInterface {

@@ -38,10 +38,7 @@ class ThirdFragment : Fragment() {
 
     private fun initLayouts(){
         with(binding.includer) {
-            tvFragmentName.text = className
-            btnNavigate.setOnClickListener {
-                navigate(R.id.action_thirdFragment_to_fourthFragment2, FourthFragment)
-            }
+           //todo
         }
     }
 

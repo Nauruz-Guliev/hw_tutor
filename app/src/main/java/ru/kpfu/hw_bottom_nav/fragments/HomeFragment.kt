@@ -23,13 +23,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initLayouts()
-    }
 
-    private fun initLayouts() {
-        with(binding) {
-
-        }
     }
 
     companion object : NavigationFragmentInterface {

@@ -35,9 +35,7 @@ class FourthFragment : Fragment() {
         initLayouts()
     }
     private fun initLayouts(){
-        with(binding) {
-            includer.tvFragmentName.text = className
-        }
+     //todo
     }
     companion object : NavigationFragmentInterface{
         override val ARG: String = "FORTH_FRAGMENT"

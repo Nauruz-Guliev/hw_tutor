@@ -9,7 +9,7 @@ import ru.kpfu.hw_bottom_nav.R
 import ru.kpfu.hw_bottom_nav.utils.NavigationFragmentInterface
 
 
-class FavortiesFragment : Fragment() {
+class FavoritesFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
