@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nested_nav_graph"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Main" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Settings" />
+    <item
+        android:id="@+id/favortiesFragment"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        android:title="Favorites" />
+</menu>
