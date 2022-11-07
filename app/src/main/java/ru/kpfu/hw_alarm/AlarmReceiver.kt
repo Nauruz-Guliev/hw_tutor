@@ -9,14 +9,16 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 class AlarmReceiver : BroadcastReceiver() {
-    override fun onReceive(context: Context?, intent: Intent?) {
-        val i = Intent(context, AlarmActivity::class.java)
-        intent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
+    override fun onReceive(context: Context?, intent: Intent?) {
+        intent?.apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
         val pendingIntent = PendingIntent.getActivity(
-            context, 0 , i, 0
+            context, 0 , Intent(context, AlarmActivity::class.java), 0
         )
 
+        // больше параметров необходимо
         val builder = NotificationCompat.Builder(context!!, "ALARM")
             .setSmallIcon(R.drawable.ic_baseline_wifi_channel_24)
             .setContentTitle("Кто придумал семестровку!!!,,,")

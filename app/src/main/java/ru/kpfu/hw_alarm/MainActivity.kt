@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var timePicker: MaterialTimePicker
     private lateinit var calendar: Calendar
     private lateinit var alarmManager: AlarmManager
-    private lateinit var pendingIntent: PendingIntent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         createNotificationChannel()
         with(binding) {
             btnSelectTime.setOnClickListener {
@@ -41,17 +41,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAlarm() {
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this, AlarmManager::class.java)
-
-        pendingIntent = PendingIntent.getBroadcast(
-             this, 0, intent, 0
-        )
+        val intent = Intent(this, AlarmReceiver::class.java).let {
+            intent -> PendingIntent.getBroadcast(baseContext, 0, intent, 0)
+        }
 
         alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
-            AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent
+            AlarmManager.INTERVAL_DAY, intent
         )
-        Snackbar.make(binding.root, "Еху будильник есть! :))) Удалите семестровку!!!(((!@!!!" + timePicker.hour.toString(), Snackbar.LENGTH_LONG).show()
+        Snackbar.make(binding.root, "Еху будильник есть! :))) Удалите семестровку!!!(((!@!!!", Snackbar.LENGTH_LONG).show()
     }
 
     private fun showTimePicker() {
@@ -64,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         timePicker.show(supportFragmentManager, "TIMEPICKER")
 
         timePicker.addOnPositiveButtonClickListener {
-            binding.tvTime.text = timePicker.hour.toString() + ":" + timePicker.minute.toString()
+            binding.tvTime.text = timePicker.hour.toString() + " : " + timePicker.minute.toString()
             calendar = Calendar.getInstance()
             calendar[Calendar.HOUR_OF_DAY] = timePicker.hour
             calendar[Calendar.MINUTE] = timePicker.minute

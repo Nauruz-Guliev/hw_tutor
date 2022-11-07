@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".AlarmActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="@dimen/material_emphasis_high_type"
+        android:fontFamily="sans-serif-condensed"
+        android:lineSpacingExtra="10sp"
+        android:text="CONGRATULATIONS!! ALARM HAS BEEN OPENED SUCCESSFULLY"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
