@@ -1,8 +1,10 @@
 package ru.kpfu.itis.hw_permissions
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
@@ -41,6 +43,14 @@ class MainActivity : AppCompatActivity() {
                 result.data
             )
         }
+
+    private val ff = registerForActivityResult(SecondActivityContract()){
+        if(it == null) {
+            binding.ivPhoto.setImageURI(imageUri)
+        } else {
+            binding.ivPhoto.setImageURI(it)
+        }
+    }
     //получаем фото вторым способом
     //запускаем камеру, которая записывает фото по предварительно заданному URI
     private val takePhoto = registerForActivityResult(ActivityResultContracts.TakePicture()) {
@@ -64,7 +74,8 @@ class MainActivity : AppCompatActivity() {
     private fun setOnClickListeners() {
         with(binding) {
             btnOpenCamera.setOnClickListener {
-                takePictureMethodSecond()
+                imageUri = initTempUri()
+                ff.launch(imageUri)
             }
         }
     }
@@ -74,6 +85,8 @@ class MainActivity : AppCompatActivity() {
         galleryIntent = Intent(Intent.ACTION_PICK).apply {
             type = "image/*"
         }
+        ActivityResultContracts.TakePicturePreview()
+
         cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).takeIf {
             it.resolveActivity(packageManager) != null
         }?.apply {
