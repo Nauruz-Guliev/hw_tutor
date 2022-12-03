@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">hw_android_2022</string>
+    <string name="cats_photos">Cats photos</string>
+    <string name="start_foreground_service">Start foreground service</string>
+    <string name="start_downloading_cat_image">Start downloading cat image</string>
+    <string name="display_image">Display image</string>
+    <string name="stop_service">Stop service</string>
+
+    <string name="content"> Here will be your cat url once you preload it =) </string>
+
+    <string name="service_success">Service has been started successfully!</string>
+    <string name="service_not_running_error">Start service to perform the operation!</string>
+    <string name="service_is_running_error">Service is already running!</string>
+
+    <string name="download_success">Image has been downloaded</string>
+    <string name="download_fail">Failed to download image</string>
+    <string name="download_error">You need to download an image first!</string>
+    <string name="cancel_service_success">Cat service has been canceled</string>
+
+    <string name="image_url">Image url: %1s</string>
+
+
+    <string name="cat_url1">https://thumbs.dreamstime.com/b/british-baby-kitten-behind-banner-24364745.jpg</string>
+    <string name="cat_url2">https://upload.wikimedia.org/wikipedia/commons/b/bc/Juvenile_Ragdoll.jpg</string>
+    <string name="cat_url3">https://cdn.theatlantic.com/thumbor/b-GfuBo5WHQpYMuN_mjlLHw5xO4=/461x265:1541x1345/1080x1080/media/img/mt/2018/03/AP_325360162607/original.jpg</string>
+    <string name="cat_url4">https://media.wired.com/photos/5e1e646743940d0008009167/master/pass/Science_Cats-84873657.jpg</string>
+
+    <string-array name="cat_array">
+        <item>@string/cat_url1</item>
+        <item>@string/cat_url2</item>
+        <item>@string/cat_url3</item>
+        <item>@string/cat_url4</item>
+    </string-array>
 </resources>
