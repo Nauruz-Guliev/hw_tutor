@@ -8,6 +8,10 @@
 
     <string name="content"> Here will be your cat url once you preload it =) </string>
 
+    <string name="channel_name">Cat notification channel</string>
+    <string name="channel_description">Cats are wonderful creatures =)</string>
+
+
     <string name="service_success">Service has been started successfully!</string>
     <string name="service_not_running_error">Start service to perform the operation!</string>
     <string name="service_is_running_error">Service is already running!</string>

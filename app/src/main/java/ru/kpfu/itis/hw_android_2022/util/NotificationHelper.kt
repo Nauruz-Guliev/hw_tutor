@@ -47,8 +47,8 @@ class NotificationHelper(private val context: Context) {
 
     private fun createChannel () {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Music channel"
-            val descriptionText = "User for musics"
+            val name = context.getString(R.string.channel_name)
+            val descriptionText = context.getString(R.string.channel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val mChannel = NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance)
             mChannel.description = descriptionText
