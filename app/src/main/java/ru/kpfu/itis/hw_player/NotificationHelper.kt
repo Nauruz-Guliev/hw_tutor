@@ -77,14 +77,6 @@ class NotificationHelper(private val context: Context) {
     }
 
     fun updateNotification(sessionCallback: PlayerMediaSessionCallback, action: MusicActionsEnum, currentPos: Long, songDuration: Long, songModel: SongModel?, @DrawableRes playPauseDrawableRes: Int) {
-        mediaSession?.setPlaybackState(
-            PlaybackStateCompat.Builder().setState(
-                getPlaybackState(action),
-                currentPos,
-                1f,
-                SystemClock.elapsedRealtime()
-            ).build()
-        )
         mediaSession?.setCallback(sessionCallback)
         mediaSession?.setMetadata(
             MediaMetadataCompat.Builder()
@@ -107,13 +99,13 @@ class NotificationHelper(private val context: Context) {
             .build()
         )
 
-        updateMediaPlaybackState(currentPos)
         notificationBuilder.clearActions()
         notificationBuilder
             .addAction(R.drawable.ic_baseline_skip_previous_24, "PREV", prevPendingIntent)
             .addAction(playPauseDrawableRes, "PLAY", playPendingIntent)
             .addAction(R.drawable.ic_baseline_skip_next_24, "NEXT", nextPendingIntent)
             .addAction(R.drawable.ic_baseline_stop_24, "STOP", stopPendingIntent)
+        updateMediaPlaybackState(currentPos)
         notificationManager?.notify(NOTIFICATION_ID, notificationBuilder.build())
     }
 

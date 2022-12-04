@@ -16,7 +16,6 @@ import ru.kpfu.itis.hw_player.util.showToast
 
 class MusicService : Service(), MusicPlayerInterface {
 
-    private var isPaused: Boolean = true
 
     private lateinit var playlist: List<SongModel>
 
@@ -50,7 +49,7 @@ class MusicService : Service(), MusicPlayerInterface {
             )
             isFirstStart = false
         }
-        showToast(intent?.action + " " + currentPosition)
+        showToast(intent?.action)
         when (intent?.action) {
             PLAY.name -> this@MusicService.play(currentPosition)
             PREV.name -> this@MusicService.prev()
@@ -79,17 +78,17 @@ class MusicService : Service(), MusicPlayerInterface {
     }
 
     override fun play(position: Int?) {
-        Log.d("SYSTEM_MESSAGE", "CALLED isPaused: $isPaused pos:$position prev:$prevPosition curr:$currentPosition")
+        Log.d("SYSTEM_MESSAGE", "CALLED  pos:$position prev:$prevPosition curr:$currentPosition")
+        val isMusicPlaying = currentPlayer?.isPlaying?: false
         when {
-            !isPaused && position == prevPosition -> {
+            isMusicPlaying && position == prevPosition -> {
                 pause()
-
             }
-            !isPaused && position != prevPosition -> {
+            isMusicPlaying && position != prevPosition -> {
                 stop()
                 playSong()
             }
-            isPaused && position != prevPosition -> {
+            !isMusicPlaying && position != prevPosition -> {
                 playSong()
             }
             else -> {
@@ -107,7 +106,6 @@ class MusicService : Service(), MusicPlayerInterface {
             prepare()
             start()
         }
-        isPaused = false
         prevPosition = currentPosition
         notificationHelper.updateNotification(sessionCallback, PLAY, currentPlayer?.currentPosition?.toLong()?:0L, currentPlayer?.duration?.toLong() ?: 0L, getCurrentSong(), PAUSE_ICON)
     }

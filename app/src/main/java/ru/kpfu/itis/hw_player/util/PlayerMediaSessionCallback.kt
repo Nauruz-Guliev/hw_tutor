@@ -6,19 +6,9 @@ import android.util.Log
 import ru.kpfu.itis.hw_player.MusicService
 
 class PlayerMediaSessionCallback(private val musicService: MusicService) : MediaSessionCompat.Callback() {
-    override fun onSkipToPrevious() {
-        musicService.prev()
-    }
-
     override fun onPause() {
         musicService.pause()
-    }
-
-    override fun onSkipToNext() {
-        musicService.next()
-    }
-    override fun onPlay() {
-        musicService.play(musicService.currentPosition)
+        musicService.baseContext.showToast("paused")
     }
     override fun onSeekTo(pos: Long) {
         musicService.currentPlayer?.seekTo(pos.toInt())
